@@ -1,8 +1,8 @@
 {
-  "name": "api-mock-server",
-  "version": "0.1.0",
+  "name": "@eonae/api-mock-server",
+  "version": "0.1.1",
   "description": "External api mocking tool.",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "mocha --require ts-node/register **/*.spec.ts",
     "build": "rm -rf dist && tsc"
@@ -17,12 +17,12 @@
   },
   "devDependencies": {
     "@types/express": "4.17.2",
-    "@types/mocha": "^5.2.7",
+    "@types/mocha": "5.2.7",
     "@types/supertest": "2.0.8",
-    "chai": "^4.2.0",
-    "chai-as-promised": "^7.1.1",
-    "mocha": "^7.0.0",
-    "ts-node": "^8.6.2",
-    "typescript": "^3.7.5"
+    "chai": "4.2.0",
+    "chai-as-promised": "7.1.1",
+    "mocha": "7.0.0",
+    "ts-node": "8.6.2",
+    "typescript": "3.7.5"
   }
 }
