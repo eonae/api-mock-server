@@ -1,4 +1,4 @@
-import { IMockServerConfig } from './src';
+import { IMockServerConfig } from '../src';
 
 export const config: IMockServerConfig = {
   port: 5001,

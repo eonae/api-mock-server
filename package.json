@@ -4,7 +4,8 @@
   "description": "External api mocking tool.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --require ts-node/register **/*.spec.ts"
+    "test": "mocha --require ts-node/register **/*.spec.ts",
+    "build": "rm -rf dist && tsc"
   },
   "author": "eonae",
   "license": "Apache-2.0",
