@@ -103,7 +103,7 @@ class MockServer {
                 resolve();
             }
             try {
-                this.server = (this.server || this.app)
+                this.server = this.app
                     .listen(this.config.port, () => {
                     this.logger.info('Listening port', this.config.port);
                     this.logger.info('Endpoints:', Object.keys(this.handlers));
@@ -123,6 +123,7 @@ class MockServer {
                         this.logger.error(err.message);
                         reject(err);
                     }
+                    this.server = null;
                     this.logger.info('Server closed');
                     resolve();
                 });
