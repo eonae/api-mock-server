@@ -1,6 +1,6 @@
 {
-  "name": "@eonae/api-mock-server",
-  "version": "0.1.3",
+  "name": "eonae-mock-server",
+  "version": "0.1.5",
   "description": "External api mocking tool.",
   "main": "dist/index.js",
   "scripts": {
