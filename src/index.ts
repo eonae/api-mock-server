@@ -16,7 +16,7 @@ async function main() {
   let configPath: string;
   try {
     configPath = defaultConfig
-      ? findConfig('api-mock.config.ts')
+      ? findConfig('api-mock.config.js')
       : path.join(__dirname, process.argv[3]);
 
     const config: IMockServerConfig = (await import(configPath)).config;
