@@ -1,7 +1,8 @@
 {
   "name": "eonae-mock-server",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "External api mocking tool.",
+  "bin": "./index.js",
   "main": "dist/index.js",
   "scripts": {
     "test": "mocha --require ts-node/register **/*.spec.ts",
