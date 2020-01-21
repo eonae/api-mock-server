@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 import { Server } from 'http';
 import { IMockServer, IMockServerConfig, HandlersMap, HttpVerb, ResponseFactory, IResponse } from '../interfaces';
 import { Logger } from '../logger';
+import { runInThisContext } from 'vm';
 
 export class MockServer implements IMockServer {
   
@@ -117,7 +118,7 @@ export class MockServer implements IMockServer {
         resolve();
       }
       try {
-        this.server = (this.server || this.app)
+        this.server = this.app
           .listen(this.config.port, () => {
             this.logger.info('Listening port', this.config.port);
             this.logger.info('Endpoints:', Object.keys(this.handlers));
@@ -137,6 +138,7 @@ export class MockServer implements IMockServer {
             this.logger.error(err.message);
             reject(err);
           }
+          this.server = null;
           this.logger.info('Server closed');
           resolve();
         });

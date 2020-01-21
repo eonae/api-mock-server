@@ -5,7 +5,6 @@ import axios from 'axios';
 const app = express();
 app.use(bodyParser.json());
 
-
 /**
  * We have an app witch depends on external api which should be
  * ran at http://localhost:5001
@@ -32,10 +31,6 @@ app.post('/data', async (req, res) => {
       res.status(500).send();
     }
   }
-});
-
-app.listen(3000, () => {
-  console.log('App listening on port: 3000');
 });
   
 export default app;
