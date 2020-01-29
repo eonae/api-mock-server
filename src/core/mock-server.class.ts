@@ -3,7 +3,6 @@ import bodyParser from 'body-parser';
 import { Server } from 'http';
 import { IMockServer, IMockServerConfig, HandlersMap, HttpVerb, ResponseFactory, IResponse } from '../interfaces';
 import { Logger } from '../logger';
-import { runInThisContext } from 'vm';
 
 export class MockServer implements IMockServer {
   
@@ -31,13 +30,14 @@ export class MockServer implements IMockServer {
       .reduce((acc: HandlersMap, [ key, handler ]) => {
         this.checkKey(key);
         acc[key] = {
-          persistent: false,
+          persistent: true,
           response: handler
         };
         return acc;
       }, {});
-    this.handlers['default'] = config.default
-      ? { persistent: true, response: config.default }
+
+    this.handlers['default'] = config.defaultHandler
+      ? { persistent: true, response: config.defaultHandler }
       : { persistent: true, response: { status: 404 }}
 
     this.config = config;
@@ -51,6 +51,7 @@ export class MockServer implements IMockServer {
       let key = `${req.method} ${req.url}`;
       if (!this.handlers[key]) {
         key = 'default';
+        this.logger.info('Using default handler');
       }
       const handler = this.handlers[key];
       this.logger.info('handling:', key);
