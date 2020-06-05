@@ -1,6 +1,6 @@
 {
   "name": "eonae-mock-server",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "External api mocking tool.",
   "bin": "./bin/index.js",
   "main": "dist/index.js",
