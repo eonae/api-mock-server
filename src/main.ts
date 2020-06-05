@@ -13,7 +13,7 @@ export async function main(configFile?: string) {
   let configPath: string;
   try {
     configPath = configFile
-      ? path.join(__dirname, configFile)
+      ? path.join(process.cwd(), configFile)
       : findConfig(DEFAULT_CONFIG)
 
     if (!fs.existsSync(configPath)) {
